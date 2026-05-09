@@ -1,0 +1,407 @@
+/* ============================================
+   CARSIDE.IN - GLOBAL STYLES
+   Red & Black Dark Theme | Premium Automotive
+   ============================================ */
+
+/* --------------------------------------------
+   1. CSS VARIABLES (Red & Black Theme)
+   -------------------------------------------- */
+:root {
+  /* Primary Colors - Red Theme */
+  --primary: #e63946;
+  --primary-dark: #c1121f;
+  --primary-light: #ff6b6b;
+  --primary-rgb: 230, 57, 70;
+  
+  /* Accent Colors */
+  --accent-red: #ff4d4d;
+  --accent-dark-red: #8b0000;
+  --accent-crimson: #dc143c;
+  
+  /* Neutral Colors - Dark Theme */
+  --black: #000000;
+  --black-light: #0a0a0a;
+  --gray-900: #111111;
+  --gray-800: #1a1a1a;
+  --gray-700: #222222;
+  --gray-600: #2a2a2a;
+  --gray-500: #333333;
+  --gray-400: #444444;
+  --gray-300: #666666;
+  --gray-200: #888888;
+  --gray-100: #aaaaaa;
+  
+  /* Semantic Colors */
+  --white: #ffffff;
+  --success: #00ff88;
+  --warning: #ffd700;
+  --error: #ff4444;
+  --info: #00d4ff;
+  
+  /* Gradients - Red Theme */
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  --gradient-primary-light: linear-gradient(135deg, var(--primary-light), var(--primary));
+  --gradient-dark: linear-gradient(135deg, var(--black), var(--gray-900));
+  --gradient-red-glow: radial-gradient(circle at 30% 20%, rgba(230, 57, 70, 0.15), transparent);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(230, 57, 70, 0.3);
+  --shadow-glow-lg: 0 0 40px rgba(230, 57, 70, 0.5);
+  --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 15px 40px rgba(230, 57, 70, 0.2);
+  
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 5rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Fonts */
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Orbitron', 'Courier New', monospace;
+}
+
+/* --------------------------------------------
+   2. RESET & BASE STYLES
+   -------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-primary);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Subtle Red Glow Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-red-glow);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* --------------------------------------------
+   3. TYPOGRAPHY
+   -------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.5rem, 5vw, 2.5rem); margin-bottom: var(--space-md); }
+h3 { font-size: clamp(1.2rem, 4vw, 1.5rem); margin-bottom: var(--space-sm); }
+h4 { font-size: 1.2rem; margin-bottom: var(--space-sm); }
+p { margin-bottom: var(--space-md); color: var(--gray-200); }
+
+/* Red Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--accent-crimson));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* --------------------------------------------
+   4. LINKS & BUTTONS
+   -------------------------------------------- */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: var(--black);
+}
+
+::-moz-selection {
+  background: var(--primary);
+  color: var(--black);
+}
+
+/* --------------------------------------------
+   5. SCROLLBAR - Red Theme
+   -------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-800);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: var(--radius-full);
+  transition: var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-light);
+  box-shadow: var(--shadow-glow);
+}
+
+/* --------------------------------------------
+   6. UTILITY CLASSES
+   -------------------------------------------- */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-lg);
+  }
+}
+
+/* Text Colors */
+.text-primary { color: var(--primary); }
+.text-gradient { background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.text-muted { color: var(--gray-300); }
+.text-white { color: var(--white); }
+
+/* Backgrounds */
+.bg-dark { background: var(--black); }
+.bg-dark-light { background: var(--gray-900); }
+.bg-card { background: var(--gray-800); }
+.bg-primary { background: var(--primary); }
+
+/* Flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.gap-1 { gap: var(--space-sm); }
+.gap-2 { gap: var(--space-md); }
+.gap-3 { gap: var(--space-lg); }
+
+/* Grid */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-cols-auto { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+/* Spacing */
+.m-0 { margin: 0; }
+.mt-1 { margin-top: var(--space-sm); }
+.mt-2 { margin-top: var(--space-md); }
+.mt-3 { margin-top: var(--space-lg); }
+.mb-1 { margin-bottom: var(--space-sm); }
+.mb-2 { margin-bottom: var(--space-md); }
+.mb-3 { margin-bottom: var(--space-lg); }
+.p-0 { padding: 0; }
+.py-1 { padding-top: var(--space-sm); padding-bottom: var(--space-sm); }
+.py-2 { padding-top: var(--space-md); padding-bottom: var(--space-md); }
+.py-3 { padding-top: var(--space-lg); padding-bottom: var(--space-lg); }
+.px-1 { padding-left: var(--space-sm); padding-right: var(--space-sm); }
+.px-2 { padding-left: var(--space-md); padding-right: var(--space-md); }
+
+/* --------------------------------------------
+   7. ANIMATIONS
+   -------------------------------------------- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 5px var(--primary); }
+  50% { box-shadow: 0 0 25px var(--primary); }
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: scale(0.95) translateY(-20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Animation Classes */
+.animate-fadeIn { animation: fadeIn 0.5s ease; }
+.animate-fadeInUp { animation: fadeInUp 0.6s ease; }
+.animate-fadeInDown { animation: fadeInDown 0.6s ease; }
+.animate-fadeInLeft { animation: fadeInLeft 0.6s ease; }
+.animate-fadeInRight { animation: fadeInRight 0.6s ease; }
+.animate-scaleIn { animation: scaleIn 0.4s ease; }
+.animate-bounce { animation: bounce 2s infinite; }
+.animate-pulse { animation: pulse 2s infinite; }
+.animate-spin { animation: spin 1s linear infinite; }
+.animate-glow { animation: glowPulse 2s infinite; }
+
+/* --------------------------------------------
+   8. LOADING STATES
+   -------------------------------------------- */
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(230, 57, 70, 0.2);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto var(--space-lg);
+}
+
+.loading-state {
+  text-align: center;
+  padding: var(--space-4xl);
+}
+
+.skeleton-card {
+  background: linear-gradient(90deg, var(--gray-700) 25%, var(--gray-600) 50%, var(--gray-700) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-xl);
+  height: 300px;
+}
+
+/* --------------------------------------------
+   9. RESPONSIVE
+   -------------------------------------------- */
+@media (max-width: 1024px) {
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* --------------------------------------------
+   10. PRINT STYLES
+   -------------------------------------------- */
+@media print {
+  .navbar, .footer, .btn, .filter-section {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .car-card, .brand-card {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+}

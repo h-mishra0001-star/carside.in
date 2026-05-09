@@ -1,0 +1,69 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+
+# Build outputs
+dist/
+build/
+.server/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Uploads
+uploads/
+temp-uploads/
+
+# MongoDB data
+data/
+dump/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Secrets
+*.pem
+*.key
+*.crt
+*.p12
+
+# Miscellaneous
+*.pid
+*.seed
+*.pid.lock
